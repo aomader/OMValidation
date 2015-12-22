@@ -14,16 +14,14 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |cs|
-    cs.source_files = 'Sources/*.h', 'Sources/*.m'
-    cs.public_header_files = 'Sources/*.h'
+    cs.source_files = 'Sources/*.{h,m}'
   end
 
-  s.subspec 'Promises' do |hs|
-    hs.dependency 'OMValidation/Core'
-    hs.dependency 'OMPromises'
+  s.subspec 'Promises' do |ps|
+    ps.dependency 'OMValidation/Core'
+    ps.dependency 'OMPromises'
 
-    hs.source_files = 'Sources/Promises'
-    hs.public_header_files = 'Sources/Promises/*.h'
-    hs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'OMVALIDATION_PROMISES_AVAILABLE=1' }
+    ps.source_files = 'Sources/Promises'
+    ps.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'OMVALIDATION_PROMISES_AVAILABLE=1' }
   end
 end
