@@ -27,6 +27,7 @@
 #import "NSObject+OMValidation.h"
 #import "NSString+OMValidation.h"
 #import "NSNumber+OMValidation.h"
+#import "NSArray+OMValidation.h"
 #import "OMValidate.h"
 
 #ifdef OMVALIDATION_PROMISES_AVAILABLE
