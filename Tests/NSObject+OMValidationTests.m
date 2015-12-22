@@ -123,4 +123,8 @@
     XCTAssertEqual(dictionary.v_isIterable, dictionary);
 }
 
+- (void)testTransform {
+    XCTAssertEqualObjects([@123 v_transform:^id(id o) { return [o stringValue]; }], @"123");
+}
+
 @end

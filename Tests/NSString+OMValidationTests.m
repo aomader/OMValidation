@@ -78,7 +78,7 @@
 }
 
 - (void)testIsUrl {
-    OMThrowsValidationException(@"://asd.com".v_isUrl)
+    OMThrowsValidationException(@":\\asd.com".v_isUrl)
 
     XCTAssertEqualObjects(@"http://lal".v_isUrl, [NSURL URLWithString:@"http://lal"]);
 }

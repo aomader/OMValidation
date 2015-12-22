@@ -153,4 +153,10 @@
     return [self v_inheritsClass:NSDictionary.class];
 }
 
+- (nullable id)v_transform:(id(^)(id))f {
+    NSParameterAssert(f != nil);
+
+    return f(self);
+}
+
 @end

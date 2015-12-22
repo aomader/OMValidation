@@ -87,6 +87,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// Ensures that the receiver inherits @p NSDictionary.
 - (NSDictionary *)v_isDictionary;
 
+
+/// @name Transformation
+
+/// Maps the current value given the transforming block `f`.
+- (nullable id)v_transform:(id(^)(id))f;
+
 @end
 
 NS_ASSUME_NONNULL_END
