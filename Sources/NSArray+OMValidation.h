@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Ensures that each item validates, given the validation block `f`.
 - (instancetype)v_all:(void (^)(ObjectType object))f;
 
+/// Convenience method that calls `v_all` with `v_isText` on all objects.
+- (instancetype)v_allText;
+
 @end
 
 NS_ASSUME_NONNULL_END

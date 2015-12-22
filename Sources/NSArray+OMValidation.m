@@ -24,6 +24,7 @@
 //
 
 #import "NSArray+OMValidation.h"
+#import "NSObject+OMValidation.h"
 
 @implementation NSArray (OMValidation)
 
@@ -35,6 +36,12 @@
     }
 
     return self;
+}
+
+- (instancetype)v_allText {
+    return [self v_all:^(id object) {
+        [object v_isText];
+    }];
 }
 
 @end
