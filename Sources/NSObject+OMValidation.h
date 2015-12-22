@@ -32,10 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @name Generic type tests
 
 /// Ensures that the receiver is of the supplied type `cls`.
-- (instancetype)v_inheritsClass:(Class)cls;
+- (id)v_inheritsClass:(Class)cls;
 
 /// Ensures that the receiver conforms to the supplied `protocol`.
-- (instancetype)v_supportsProtocol:(Protocol *)protocol;
+- (id)v_supportsProtocol:(Protocol *)protocol;
 
 
 /// @name Value extraction

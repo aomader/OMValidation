@@ -29,7 +29,7 @@
 
 @implementation NSObject (OMValidation)
 
-- (instancetype)v_inheritsClass:(Class)cls {
+- (id)v_inheritsClass:(Class)cls {
     NSParameterAssert(cls != nil);
     
     if (![self isKindOfClass:cls]) {
@@ -39,7 +39,7 @@
     return self;
 }
 
-- (instancetype)v_supportsProtocol:(Protocol *)protocol {
+- (id)v_supportsProtocol:(Protocol *)protocol {
     NSParameterAssert(protocol != nil);
     
     if (![self conformsToProtocol:protocol]) {
