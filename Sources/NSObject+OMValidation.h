@@ -70,6 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// validation error as well.
 - (NSNumber *)v_isFloat;
 
+/// Ensures that the receiver is of type @p NSString, might be empty though.
+///
+/// If you want to validate that the string contains visibile characters, you
+/// should use @p v_isText instead.
+- (NSString *)v_isString;
+
 /// Ensures that the receiver is of type @p NSString and contains visible
 /// characters.
 - (NSString *)v_isText;

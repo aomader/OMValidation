@@ -123,6 +123,10 @@
     return (NSNumber *) self;
 }
 
+- (NSString *)v_isString {
+    return [self v_inheritsClass:NSString.class];
+}
+
 - (NSString *)v_isText {
     [self v_inheritsClass:NSString.class];
     
