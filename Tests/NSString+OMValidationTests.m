@@ -77,6 +77,12 @@
     XCTAssertEqualObjects([@"123" v_contains:@"123"], @"123");
 }
 
+- (void)testIsUrl {
+    OMThrowsValidationException(@"://asd.com".v_isUrl)
+
+    XCTAssertEqualObjects(@"http://lal".v_isUrl, [NSURL URLWithString:@"http://lal"]);
+}
+
 - (void)testIsEmail {
     OMThrowsValidationException(@"a@b.c".v_isEmail);
     OMThrowsValidationException(@"a@.cc".v_isEmail);

@@ -54,6 +54,17 @@
     return self;
 }
 
+
+- (NSURL *)v_isUrl {
+    NSURL *url = [NSURL URLWithString:self];
+    
+    if (url == nil) {
+        OMValidationFailed(@"'%@' is not a valid URL", self);
+    }
+
+    return url;
+}
+
 - (instancetype)v_isEmail {
     @try {
         return [self v_matchesRegex:@"^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"];

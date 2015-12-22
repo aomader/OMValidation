@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Ensures that the receiver contains a certain `substring`.
 - (instancetype)v_contains:(NSString *)substring;
 
+/// Ensures that the receiver is a valid URL.
+- (NSURL *)v_isUrl;
+
 /// Ensures that the receiver is a valid E-Mail address.
 ///
 /// **Beware**: it just uses a not-so-strict RegEx to ensure that the string
