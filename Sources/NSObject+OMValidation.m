@@ -167,10 +167,21 @@
     return self;
 }
 
-- (nullable id)v_map:(id(^)(id))f {
+- (id)v_map:(id(^)(id))f {
     NSParameterAssert(f != nil);
 
     return f(self);
+}
+
+- (id)v_lookup:(NSDictionary *)mapping {
+    NSParameterAssert(mapping.count > 0);
+
+    id value = mapping[self];
+    if (value == nil) {
+        OMValidationFailed(@"%@ is not contained in %@", self, mapping);
+    }
+
+    return value == NSNull.null ? nil : value;
 }
 
 @end

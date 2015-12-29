@@ -102,6 +102,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Maps the current value given the transforming block `f`.
 - (nullable id)v_map:(id(^)(id))f;
 
+/// Maps the receiver given a transformation dictionary.
+///
+/// The receiver is used as lookup key to the dictionary. The found value
+/// is then returned. If no value exists for this key, a validation
+/// exception is raised.
+///
+/// **Hint:** @p NSNull is automatically converted to @p nil.
+- (nullable id)v_lookup:(NSDictionary *)mapping;
+
 @end
 
 NS_ASSUME_NONNULL_END

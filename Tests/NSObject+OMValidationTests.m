@@ -136,4 +136,16 @@
     }], @"123");
 }
 
+- (void)testLookup {
+    NSDictionary *mapping = @{
+            @0: NSNull.null,
+            @"2": @"zwei"
+    };
+
+    OMThrowsValidationException([@1 v_lookup:mapping]);
+
+    XCTAssertNil([@0 v_lookup:mapping]);
+    XCTAssertEqualObjects([@"2" v_lookup:mapping], @"zwei");
+}
+
 @end
