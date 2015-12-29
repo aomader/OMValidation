@@ -42,14 +42,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Uses `KVC` to retrieve the _mandatory_ value for `keyPath`.
 ///
-/// If the the receiver doesn't provide a _nonnull_ value for the supplied `keyPath`,
-/// an validation exception is thrown.
+/// If the the receiver doesn't provide a _nonnull_ (this includes @p NSNull.null)
+/// value for the supplied `keyPath`, a validation exception is thrown.
+///
+/// **Hint:** @p NSNull.null is automatically converted to @p nil.
 - (id)v_has:(NSString *)keyPath;
 
 /// Uses `KVC` to retrieve the _optional_ value for `keyPath`.
 ///
 /// If the the receiver doesn't provide a value for the supplied `keyPath`,
 /// @p nil is returned instead of throwing an error.
+///
+/// **Hint:** @p NSNull.null is automatically converted to @p nil.
 - (nullable id)v_mightHave:(NSString *)keyPath;
 
 

@@ -56,9 +56,10 @@
 }
 
 - (void)testHas {
-    NSDictionary *dictionary = @{@"foo": @"bar"};
-    
+    NSDictionary *dictionary = @{@"foo": @"bar", @"null": NSNull.null};
+
     OMThrowsValidationException([dictionary v_has:@"nope"]);
+    OMThrowsValidationException([dictionary v_has:@"null"]);
     XCTAssertEqualObjects([dictionary v_has:@"foo"], @"bar");
     
     TestObject *testObject = [[TestObject alloc] init];
@@ -70,9 +71,10 @@
 }
 
 - (void)testMightHave {
-    NSDictionary *dictionary = @{@"foo": @"bar"};
+    NSDictionary *dictionary = @{@"foo": @"bar", @"null": NSNull.null};
     
     XCTAssertNil([dictionary v_mightHave:@"nope"]);
+    XCTAssertNil([dictionary v_mightHave:@"null"]);
     XCTAssertEqualObjects([dictionary v_mightHave:@"foo"], @"bar");
     
     TestObject *testObject = [[TestObject alloc] init];

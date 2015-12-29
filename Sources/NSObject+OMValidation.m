@@ -63,7 +63,7 @@
         }
     }
     
-    if (value == nil) {
+    if (value == nil || value == NSNull.null) {
         OMValidationFailed(@"found no value for required property '%@'", keyPath);
     }
     
@@ -74,7 +74,8 @@
     NSParameterAssert(keyPath.length > 0);
 
     @try {
-        return [self valueForKeyPath:keyPath];
+        id value = [self valueForKeyPath:keyPath];
+        return value == NSNull.null ? nil : value;
     } @catch (NSException *exception) {
         if ([exception.name isEqualToString:NSUndefinedKeyException]) {
             return nil;
