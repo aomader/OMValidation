@@ -123,6 +123,13 @@
     XCTAssertEqual(dictionary.v_isIterable, dictionary);
 }
 
+- (void)testIsOneOf {
+    NSArray *others = @[@2, @3];
+    OMThrowsValidationException([@1 v_isOneOf:others]);
+
+    XCTAssertEqualObjects([@2 v_isOneOf:others], @2);
+}
+
 - (void)testMap {
     XCTAssertEqualObjects([@123 v_map:^id(id o) {
         return [o stringValue];

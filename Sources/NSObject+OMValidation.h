@@ -93,6 +93,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Ensures that the receiver inherits @p NSDictionary.
 - (NSDictionary *)v_isDictionary;
 
+/// Ensures that the receiver is contained in the supplied @p NSArray.
+- (instancetype)v_isOneOf:(NSArray *)others;
+
 
 /// @name Transformation
 

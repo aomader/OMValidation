@@ -139,7 +139,7 @@
     NSRange characters = [(NSString *)self rangeOfCharacterFromSet:noneWhitespaceCharacters];
     
     if (characters.location == NSNotFound) {
-        OMValidationFailed(@"string contins only whitespace characters");
+        OMValidationFailed(@"string contains only whitespace characters");
     }
     
     return (NSString *) self;
@@ -155,6 +155,16 @@
 
 - (NSDictionary *)v_isDictionary {
     return [self v_inheritsClass:NSDictionary.class];
+}
+
+- (instancetype)v_isOneOf:(NSArray *)others {
+    NSParameterAssert(others.count > 0);
+
+    if (![others containsObject:self]) {
+        OMValidationFailed(@"%@ is not one of %@", self, others);
+    }
+
+    return self;
 }
 
 - (nullable id)v_map:(id(^)(id))f {
