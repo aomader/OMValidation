@@ -105,6 +105,16 @@
     XCTAssertEqualWithAccuracy([[NSNumber numberWithDouble:.1337] v_isFloat].doubleValue, 0.1337, 1.0e-8);
 }
 
+- (void)testIsNumber {
+    OMThrowsValidationException([@"123" v_isNumber]);
+    OMThrowsValidationException([@(INFINITY) v_isNumber]);
+    OMThrowsValidationException([@(0. / 0.) v_isNumber]);
+
+    XCTAssertEqualObjects([@YES v_isNumber], @YES);
+    XCTAssertEqualObjects([@123.56 v_isNumber], @123.56);
+    XCTAssertEqualObjects([@5 v_isNumber], @5);
+}
+
 - (void)testIsText {
     OMThrowsValidationException([@1 v_isText]);
     OMThrowsValidationException([@"" v_isText]);

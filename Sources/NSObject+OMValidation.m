@@ -123,6 +123,17 @@
     return (NSNumber *) self;
 }
 
+- (NSNumber *)v_isNumber {
+    if (![self isKindOfClass:NSNumber.class] ||
+        (strcmp(((NSNumber *)self).objCType, @encode(float)) == 0 && !isnormal(((NSNumber *)self).floatValue)) ||
+        (strcmp(((NSNumber *)self).objCType, @encode(double)) == 0 && !isnormal(((NSNumber *)self).doubleValue)))
+    {
+        OMValidationFailed(@"%@ is not a normal NSNumber", self);
+    }
+
+    return (NSNumber *) self;
+}
+
 - (NSString *)v_isString {
     return [self v_inheritsClass:NSString.class];
 }
