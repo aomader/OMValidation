@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @name Transformation
 
 /// Maps the current value given the transforming block `f`.
-- (nullable id)v_transform:(id(^)(id))f;
+- (nullable id)v_map:(id(^)(id))f;
 
 @end
 
