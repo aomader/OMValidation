@@ -128,6 +128,7 @@ or even better directly a pull request providing the required method.
 | --------- | ----------- | ----------- |
 | `v_isLongerThan:` |  | Ensures that the receiver has more than `length` characters. |
 | `v_isShorterThan:` |  | Ensures that the receiver has less than `length` characters. |
+| `v_hasLength:` |  | Ensures that the receiver has exact `length` characters. |
 | `v_startsWith:` |  | Ensures that the receiver starts with the supplied `prefix`. |
 | `v_endsWith:` |  | Ensures that the receiver ends with the supplied `suffix`. |
 | `v_contains:` |  | Ensures that the receiver contains the supplied `substring`. |

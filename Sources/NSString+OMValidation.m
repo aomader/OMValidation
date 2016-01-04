@@ -24,6 +24,14 @@
     return self;
 }
 
+- (instancetype)v_hasLength:(NSUInteger)length {
+    if (self.length != length) {
+        OMValidationFailed(@"'%@' has less/more than %d characters", self, length);
+    }
+
+    return self;
+}
+
 - (instancetype)v_startsWith:(NSString *)prefix {
     NSParameterAssert(prefix.length > 0);
 

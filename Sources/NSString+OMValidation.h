@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Ensures that the receiver has less than `length` characters.
 - (instancetype)v_isShorterThan:(NSUInteger)length;
 
+/// Ensures that the receiver has exact `length` characters.
+- (instancetype)v_hasLength:(NSUInteger)length;
+
 /// Ensures that the receiver starts with a certain `prefix`.
 - (instancetype)v_startsWith:(NSString *)prefix;
 

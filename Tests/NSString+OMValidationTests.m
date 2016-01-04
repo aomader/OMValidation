@@ -49,6 +49,13 @@
     XCTAssertEqualObjects([@"123" v_isShorterThan:4], @"123");
 }
 
+- (void)testHasLength {
+    OMThrowsValidationException([@"123" v_hasLength:0]);
+    OMThrowsValidationException([@"きょう" v_hasLength:2]);
+
+    XCTAssertEqualObjects([@"きょう" v_hasLength:3], @"きょう");
+}
+
 - (void)testStartsWith {
     OMThrowsValidationException([@"123" v_startsWith:@"23"]);
     OMThrowsValidationException([@"123" v_startsWith:@"13"]);
