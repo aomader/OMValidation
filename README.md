@@ -40,6 +40,9 @@ library, in combination with [OMPromises], to achieve the above described.
                       options:nil]
             httpParseJson]
             then:^(id data) {
+                // the actual validation runs in a background thread; if an exception
+                // is raised, it is converted into an NSError* for you to handle, e.g.,
+                // ping a reporting system if this shouldn't happen
                 return OMValidationTask(^{
                     NSMutableArray *posts = [NSMutableArray new];
                     
